@@ -1,0 +1,39 @@
+import javax.swing.JOptionPane;
+public class Babylonian {
+
+	public double x;
+	
+	public Babylonian(double x){
+		this.x = x;
+	}
+	public double getX(){
+		return this.x;
+	}
+	
+	public double bMethod(){
+		if(this.x == 0){
+			return this.x;
+		}
+		else if(x > 0){
+			double num = this.x/2;
+			double y = num +1;
+			while(num != y){
+				double z = this.x/num;
+				num = y;
+				y =(num+z)/2;
+			}
+			return y;
+		}
+		else{
+			System.out.println("The result for negative numbers would be -1");
+			return -1;
+		}	
+	}
+	
+	public static void main(String[] args){
+		double square= Double.parseDouble(JOptionPane.showInputDialog("Give me a number: "));
+		Babylonian squareB = new Babylonian(square);
+		double answer = squareB.bMethod();
+		System.out.println("The answer is " + (answer));
+	}
+}
